@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    const bases = {
+      "phys3001": "https://moodle.nottingham.ac.uk/pluginfile.php/12480800/mod_resource/content/3/"
+    };
+    const path = window.location.pathname.replace('/phys-notes-redirects/', '');
+    const [module, ...rest] = path.split('/');
+    const file = rest.join('/');
+    
+    if (bases[module] && file) {
+      window.location.replace(bases[module] + file);
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
