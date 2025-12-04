@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    const bases = {
+      "phys3001": "https://moodle.nottingham.ac.uk/pluginfile.php/12480800/mod_resource/content/3/"
+    };
+
+    const hash = window.location.hash.slice(1); // e.g. "phys3001/chapter 1-radioactivity.html"
+    const [module, ...rest] = hash.split('/');
+    const file = rest.join('/');
+    
+    if (bases[module] && file) {
+      window.location.replace(bases[module] + encodeURIComponent(file));
+    } else if (hash) {
+      document.body.innerHTML = "<p>Unknown redirect: " + hash + "</p>";
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
